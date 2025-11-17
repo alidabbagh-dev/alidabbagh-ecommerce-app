@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	body {
+		@apply min-h-screen bg-white font-sans;
+	}
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p,
+	span {
+		@apply text-gray-900;
+	}
+}
+
+@layer utilities {
+	.navLink {
+		@apply w-full h-full hover:text-gray-500 transition;
+		&.active {
+			@apply relative text-gray-900 before:absolute before:w-full before:h-[2px] before:bg-gray-900 before:-bottom-1;
+		}
+	}
+	.main-btn {
+		@apply p-2 rounded-md bg-transparent hover:bg-gray-100 transition;
+	}
+	.container {
+		@apply mx-auto;
+	}
+	.arrow-btn {
+		@apply bg-gray-200 border border-gray-300;
+	}
+	.category-btn {
+		@apply hover:text-gray-900 font-medium capitalize transition cursor-pointer;
+		&.active {
+			@apply text-gray-900;
+		}
+	}
+	.card {
+		@apply w-[300px] max-h-[450px] bg-white p-2 border shadow-sm;
+		.product-image {
+			@apply w-[300px] h-[200px] object-cover rounded-xl;
+		}
+		.title {
+			@apply text-2xl font-semibold line-clamp-1 my-4;
+		}
+		.price {
+			@apply text-xl font-semibold;
+		}
+		.description {
+			@apply text-gray-500 max-w-[200px] min-h-[72px] line-clamp-3;
+		}
+	}
+	.btn {
+		@apply min-h-0 h-fit md:py-1 md:px-2 md:mt-4 rounded-full;
+		&.cart {
+			@apply min-h-0 h-fit bg-green-500 py-1 px-2 border-green-400 text-white gap-1;
+		}
+	}
+}
