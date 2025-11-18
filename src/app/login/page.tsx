@@ -21,9 +21,9 @@ export default function LoginPage() {
   if (isAuthenticated) router.push("/");
 
   return (
-    <div className="p-10 flex flex-col gap-4">
+    <div className="p-10 flex flex-col gap-4 max-w-[800px] mx-auto">
       <input
-        className="input input-bordered border p-2"
+        className="bg-white input input-bordered text-black border p-2"
         type="email"
         placeholder="Email"
         onChange={(e) => setEmail(e.target.value)}
@@ -32,7 +32,7 @@ export default function LoginPage() {
       />
 
       <input
-        className="input input-bordered border p-2"
+        className="bg-white input input-bordered text-black border p-2"
         type="password"
         placeholder="Password"
         onChange={(e) => setPassword(e.target.value)}

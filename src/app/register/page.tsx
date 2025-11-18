@@ -18,18 +18,18 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="p-10 flex flex-col gap-4">
+    <div className="p-10 flex flex-col gap-4 max-w-[800px] mx-auto">
      
 
       <input
-        className="border p-2"
+        className="input input-bordered bg-white text-black border p-2"
         type="email"
         placeholder="Email"
         onChange={(e) => setEmail(e.target.value)}
       />
 
       <input
-        className="border p-2"
+        className="input input-bordered bg-white text-black border p-2"
         type="password"
         placeholder="Password"
         onChange={(e) => setPassword(e.target.value)}
