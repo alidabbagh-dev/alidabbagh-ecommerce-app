@@ -44,6 +44,8 @@ const Navbar = () => {
 				<ul className="flex justify-center items-center gap-4">
 					<NavLink link="products" />
 					<NavLink link="categories" />
+					<NavLink link="login" />
+					<NavLink link="register" />
 				</ul>
 				<Link href="/cart" className="main-btn relative">
 					<span className="absolute w-4 h-4 top-0 right-0 flex justify-center items-center bg-blue-500 text-white font-semibold rounded-full ">
