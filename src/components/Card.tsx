@@ -51,14 +51,15 @@ const Card = (props: Props) => {
 						loading="lazy"
 						className="product-image"
 					/>
-				</Link>
+				
 
 				<div className="flex justify-between items-center">
 					<h4 className="title">{title}</h4>
 					<span className="price">{price}$</span>
 				</div>
 
-				<p className="description">{description}</p>
+					<p className="description">{description}</p>
+			   </Link>
 
 				<button onClick={handleAddToCart} className="btn cart">
 					<MdAddCircleOutline size={20} />

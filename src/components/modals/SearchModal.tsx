@@ -51,7 +51,7 @@ const SearchModal = () => {
 									dispatch(searchBtnToggle());
 								}}
 								type="button"
-								className="block mx-auto mb-3 text-white bg-gray-700 hover:bg-gray-800 focus:ring-2 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm p-1 text-center shadow-gray-500 shadow-md transition"
+								className="block mb-3 text-white bg-gray-700 hover:bg-gray-800 focus:ring-2 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm p-1 text-center shadow-gray-500 shadow-md transition"
 							>
 								<CgCloseR size={25} />
 							</button>
