@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { loginUser } from "@/redux/slices/authSlice";
 import { useRouter } from "next/navigation";
@@ -18,7 +18,12 @@ export default function LoginPage() {
     dispatch(loginUser({ email, password }));
   };
 
-  if (isAuthenticated) router.push("/");
+  // ✅ اینجا useEffect باعث می‌شود که push **بعد از آپدیت state** انجام شود
+  useEffect(() => {
+    if (isAuthenticated) {
+      router.push("/");
+    }
+  }, [isAuthenticated, router]);
 
   return (
     <div className="p-10 flex flex-col gap-4 max-w-[800px] mx-auto">
@@ -27,8 +32,6 @@ export default function LoginPage() {
         type="email"
         placeholder="Email"
         onChange={(e) => setEmail(e.target.value)}
-        
-        
       />
 
       <input
@@ -44,7 +47,7 @@ export default function LoginPage() {
         onClick={handleLogin}
         className="bg-green-500 text-white p-2 rounded"
       >
-      Login
+        Login
       </button>
     </div>
   );
