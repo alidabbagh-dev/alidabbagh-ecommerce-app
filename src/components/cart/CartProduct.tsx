@@ -36,6 +36,7 @@ const CartProduct = (props: Props) => {
 								width={100}
 								height={100}
 								src={thumbnail}
+								
 								alt="Avatar Tailwind CSS Component"
 							/>
 						</div>
