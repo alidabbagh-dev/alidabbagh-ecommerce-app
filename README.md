@@ -1,14 +1,21 @@
 # React Next.JS E-Commerce website with TypeScript | Redux | Tailwind
-<table>
-  <tr>
-    <td><img src="https://raw.githubusercontent.com/alidabbagh-dev/alidabbagh-ecommerce-app/main/image1.png" alt="image1" style="width:100%;"></td>
-    <td><img src="https://raw.githubusercontent.com/alidabbagh-dev/alidabbagh-ecommerce-app/main/image2.png" alt="image2" style="width:100%;"></td>
-  </tr>
-  <tr>
-    <td><img src="https://raw.githubusercontent.com/alidabbagh-dev/alidabbagh-ecommerce-app/main/image3.jpg" alt="image3" style="width:100%;"></td>
-    <td><img src="https://raw.githubusercontent.com/alidabbagh-dev/alidabbagh-ecommerce-app/main/image4.jpg" alt="image4" style="width:100%;"></td>
-  </tr>
-</table>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/alidabbagh-dev/alidabbagh-ecommerce-app/main/image1.png" alt="image1" style="max-width: 100%; height: auto; margin-bottom: 20px;">
+</p>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/alidabbagh-dev/alidabbagh-ecommerce-app/main/image2.png" alt="image2" style="max-width: 100%; height: auto; margin-bottom: 20px;">
+</p>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/alidabbagh-dev/alidabbagh-ecommerce-app/main/image3.jpg" alt="image3" style="max-width: 100%; height: auto; margin-bottom: 20px;">
+</p>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/alidabbagh-dev/alidabbagh-ecommerce-app/main/image4.jpg" alt="image4" style="max-width: 100%; height: auto; margin-bottom: 20px;">
+</p>
+
 ## Features
 - Search for a product 🔍
 - Banner to get a random product every time you refresh the page 🔃
@@ -17,12 +24,14 @@
 - Cart functionality 🛒
 - Authentication 🔒
 - Responsive Design 📱➡️💻
+
 ## Technologies
 - TypeScript
 - React
 - Next.js
 - Redux
-- Tainwind
+- Tailwind
 - SASS
 - Axios
+
 ### [Visit](https://alidabbagh-ecommerce-app.vercel.app/)
