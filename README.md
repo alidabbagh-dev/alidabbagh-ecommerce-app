@@ -1,4 +1,6 @@
-# React Next.JS E-Commerce website with TypeScript | Redux | Tailwind
+# 🌟 React Next.JS E-Commerce Website 🌟
+
+### [Visit Live Site](https://alidabbagh-ecommerce-app.vercel.app/) 🚀
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/alidabbagh-dev/alidabbagh-ecommerce-app/main/image1.png" alt="image1" style="max-width: 100%; height: auto; margin-bottom: 20px;">
@@ -33,5 +35,3 @@
 - Tailwind
 - SASS
 - Axios
-
-### [Visit](https://alidabbagh-ecommerce-app.vercel.app/)
