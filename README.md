@@ -6,6 +6,7 @@
 - Details page ℹ️
 - Cart functionality 🛒
 - Authentication 🔒
+- Responsive Design 📱➡️💻
 ## Technologies
 - TypeScript
 - React
