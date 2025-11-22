@@ -5,6 +5,7 @@
 - Filter products by category 📦
 - Details page ℹ️
 - Cart functionality 🛒
+- Authentication 🔒
 ## Technologies
 - TypeScript
 - React
