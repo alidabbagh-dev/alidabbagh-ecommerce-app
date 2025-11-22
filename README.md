@@ -1,5 +1,4 @@
 # React Next.JS E-Commerce website with TypeScript | Redux | Tailwind
-![alt text](https://github.com/9abour/e-commerce-redux/blob/master/Thumbnail_V2.png?raw=true)
 ## Features
 - Search for a product 🔍
 - Banner to get a random product every time you refresh the page 🔃
