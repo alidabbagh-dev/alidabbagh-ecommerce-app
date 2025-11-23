@@ -24,7 +24,7 @@ export const loginUser = createAsyncThunk(
   "auth/loginUser",
   async (payload: User, thunkAPI) => {
     const saved = localStorage.getItem("fakeUser");
-
+    console.log("saved",saved)
     if (!saved) {
       return thunkAPI.rejectWithValue("No User Has Been Registered");
     }
