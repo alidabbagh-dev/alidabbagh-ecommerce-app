@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 
 export interface User {
   email: string;
@@ -14,49 +14,79 @@ interface AuthState {
 const initialState: AuthState = {
   user: null,
   isAuthenticated: false,
-  error: null
+  error: null,
 };
 
+// --------------------------------------------------------
+// 🔥 LOGIN THUNK
+// --------------------------------------------------------
+export const loginUser = createAsyncThunk(
+  "auth/loginUser",
+  async (payload: User, thunkAPI) => {
+    const saved = localStorage.getItem("fakeUser");
+
+    if (!saved) {
+      return thunkAPI.rejectWithValue("No User Has Been Registered");
+    }
+
+    const parsed = JSON.parse(saved);
+
+    if (parsed.email === payload.email && parsed.password === payload.password) {
+      document.cookie = "auth=true; path=/";
+      return parsed;
+    }
+
+    return thunkAPI.rejectWithValue("Email Or Password Is Wrong");
+  }
+);
+
+// --------------------------------------------------------
+// 🔥 REGISTER THUNK
+// --------------------------------------------------------
+export const registerUser = createAsyncThunk(
+  "auth/registerUser",
+  async (payload: User) => {
+    localStorage.setItem("fakeUser", JSON.stringify(payload));
+    document.cookie = "auth=true; path=/";
+    return payload;
+  }
+);
+
+// --------------------------------------------------------
+// 🔥 SLICE
+// --------------------------------------------------------
 export const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    registerUser: (state, action: PayloadAction<User>) => {
-      // ذخیره داخل LocalStorage
-      localStorage.setItem("fakeUser", JSON.stringify(action.payload));
-      state.user = action.payload;
-      state.error = null;
-      document.cookie = "auth=true; path=/";
-    },
-    loginUser: (state, action: PayloadAction<User>) => {
-      const savedUser = localStorage.getItem("fakeUser");
-
-      if (!savedUser) {
-        state.error = "No User Has Been Registered";
-        return;
-      }
-
-      const parsed = JSON.parse(savedUser);
-
-      if (
-        parsed.email === action.payload.email &&
-        parsed.password === action.payload.password
-      ) {
-        state.user = parsed;
-        state.isAuthenticated = true;
-        state.error = null;
-        document.cookie = "auth=true; path=/";
-      } else {
-        state.error = "Email Or Password Is Wrong";
-      }
-    },
     logoutUser: (state) => {
       state.isAuthenticated = false;
       state.user = null;
-       document.cookie = "auth=false; path=/";
-    }
-  }
+      document.cookie = "auth=false; path=/";
+    },
+  },
+
+  extraReducers: (builder) => {
+    // LOGIN
+    builder.addCase(loginUser.fulfilled, (state, action: PayloadAction<User>) => {
+      state.user = action.payload;
+      state.isAuthenticated = true;
+      state.error = null;
+    });
+
+    builder.addCase(loginUser.rejected, (state, action: any) => {
+      state.error = action.payload;
+      state.isAuthenticated = false;
+    });
+
+    // REGISTER
+    builder.addCase(registerUser.fulfilled, (state, action: PayloadAction<User>) => {
+      state.user = action.payload;
+      state.isAuthenticated = true;
+      state.error = null;
+    });
+  },
 });
 
-export const { registerUser, loginUser, logoutUser } = authSlice.actions;
+export const { logoutUser } = authSlice.actions;
 export default authSlice.reducer;
