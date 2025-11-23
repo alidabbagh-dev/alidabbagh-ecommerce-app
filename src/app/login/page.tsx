@@ -1,8 +1,9 @@
+// app/login/page.tsx
 "use client";
 
 import React, { useState, useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { loginUser } from "@/redux/slices/authSlice";
+import { loginUser, clearError } from "@/redux/slices/authSlice";
 import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
@@ -12,18 +13,21 @@ export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const { error, isAuthenticated } = useAppSelector((s) => s.auth);
+  const { error, isAuthenticated, loading } = useAppSelector((s) => s.auth);
 
-  const handleLogin = () => {
-    dispatch(loginUser({ email, password }));
-  };
-
-  // ✅ اینجا useEffect باعث می‌شود که push **بعد از آپدیت state** انجام شود
   useEffect(() => {
     if (isAuthenticated) {
       router.push("/");
     }
   }, [isAuthenticated, router]);
+
+  const handleLogin = async () => {
+    try {
+      await dispatch(loginUser({ email, password })).unwrap();
+    } catch (err) {
+     
+    }
+  };
 
   return (
     <div className="p-10 flex flex-col gap-4 max-w-[800px] mx-auto">
@@ -31,6 +35,7 @@ export default function LoginPage() {
         className="bg-white input input-bordered text-black border p-2"
         type="email"
         placeholder="Email"
+        value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
 
@@ -38,6 +43,7 @@ export default function LoginPage() {
         className="bg-white input input-bordered text-black border p-2"
         type="password"
         placeholder="Password"
+        value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
 
@@ -45,9 +51,10 @@ export default function LoginPage() {
 
       <button
         onClick={handleLogin}
-        className="bg-green-500 text-white p-2 rounded"
+        disabled={loading}
+        className="bg-green-500 text-white p-2 rounded disabled:opacity-50"
       >
-        Login
+        {loading ? "Loading..." : "Login"}
       </button>
     </div>
   );
