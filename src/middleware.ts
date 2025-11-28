@@ -13,11 +13,6 @@ export function middleware(req: NextRequest) {
 
 export const config = {
     matcher: [
-    /*
-      همه مسیرها به جز:
-      - مسیرهای داخلی Next.js (_next)
-      - فایل‌های عمومی مثل favicon.ico و robots.txt
-    */
     "/((?!_next|favicon.ico|robots.txt).*)",
   ],
 };

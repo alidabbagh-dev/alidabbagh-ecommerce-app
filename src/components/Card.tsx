@@ -12,7 +12,7 @@ interface Props {
 }
 
 const Card = (props: Props) => {
-	if (!props.product) return null; // یا یک fallback ساده
+	if (!props.product) return null; 
 
 	const { id, thumbnail, title, price, description } = props.product;
 
@@ -22,7 +22,7 @@ const Card = (props: Props) => {
 	const [showSnackbar, setShowSnackbar] = React.useState(false);
 
 	const handleAddToCart = () => {
-		dispatch(addToCart(props.product!)); // ! چون مطمئن شدیم product وجود دارد
+		dispatch(addToCart(props.product!)); 
 		dispatch(setCartProductsToLS());
 
 		setTimeout(() => {

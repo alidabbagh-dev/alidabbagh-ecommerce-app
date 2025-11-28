@@ -1,4 +1,4 @@
-// app/login/page.tsx
+
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -24,12 +24,17 @@ export default function LoginPage() {
   const handleLogin = async () => {
     try {
       await dispatch(loginUser({ email, password })).unwrap();
+      if (document.cookie.includes("auth=true")) {
+        router.push("/")
+        
+    }
     } catch (err) {
      
     }
   };
 
   return (
+    <form onSubmit={e => e.preventDefault()}>
     <div className="p-10 flex flex-col gap-4 max-w-[800px] mx-auto">
       <input
         className="bg-white input input-bordered text-black border p-2"
@@ -56,6 +61,7 @@ export default function LoginPage() {
       >
         {loading ? "Loading..." : "Login"}
       </button>
-    </div>
+      </div>
+      </form>
   );
 }

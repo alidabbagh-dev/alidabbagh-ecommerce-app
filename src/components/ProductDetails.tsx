@@ -17,7 +17,7 @@ import PageLink from "@/app/products/[id]/PageLink";
 const ProductDetails = () => {
   const [imageToShow, setImageToShow] = useState<number>(-1);
   const [product, setProduct] = useState<productType | null>(null);
-  const [showSnack, setShowSnack] = useState(false); // اضافه کردن state اسنک‌بار
+  const [showSnack, setShowSnack] = useState(false); 
 
   const pathname = usePathname().split("/");
 
@@ -73,8 +73,8 @@ const ProductDetails = () => {
                     onClick={() => {
                       dispatch(addToCart(product));
                       dispatch(setCartProductsToLS());
-                      setShowSnack(true); // نمایش اسنک‌بار
-                      setTimeout(() => setShowSnack(false), 2000); // خودکار مخفی شدن بعد از 2 ثانیه
+                      setShowSnack(true); 
+                      setTimeout(() => setShowSnack(false), 2000); 
                     }}
                     className="btn cart"
                   >

@@ -18,6 +18,7 @@ export default function RegisterPage() {
   };
 
   return (
+    <form onSubmit={e => e.preventDefault()}>
     <div className="p-10 flex flex-col gap-4 max-w-[800px] mx-auto">
      
 
@@ -41,6 +42,7 @@ export default function RegisterPage() {
       >
        Register
       </button>
-    </div>
+      </div>
+      </form>
   );
 }
