@@ -19,7 +19,7 @@ export default function RegisterPage() {
 
     setTimeout(() => {
       setLoading(false);
-      router.push("/login");
+      router.push("/");
     }, 700); // فقط برای دیدن اسپینر
   };
 
