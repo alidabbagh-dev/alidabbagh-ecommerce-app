@@ -29,6 +29,7 @@ export default function RegisterPage() {
         <input
           className="input input-bordered bg-white text-black border p-2"
           type="email"
+          value={email}
           placeholder="Email"
           onChange={(e) => setEmail(e.target.value)}
         />
