@@ -11,7 +11,7 @@ import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { searchBtnToggle } from "@/redux/slices/searchSlice";
 import { setCartProducts } from "@/redux/slices/cartSlice";
 import { useRouter } from "next/navigation";
-import { authSlice } from "@/redux/slices/authSlice";
+
 
 const Navbar = () => {
   const dispatch = useAppDispatch();
@@ -30,8 +30,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     document.cookie = "auth=false; path=/;";
-    dispatch(authSlice.actions.logoutUser());
-
+    
     setShowSnack(true);
 
     setTimeout(() => {
